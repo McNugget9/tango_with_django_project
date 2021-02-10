@@ -2,29 +2,16 @@
 {% load staticfiles %}
 
 {% block title_block %}
-		About Rango
+    About Rango
 {% endblock %}
 
 {% block body_block %}
-	{% if category %}
-	<ul>
-		{% for category in categories %}
-		<li><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
-		{% endfor %}
-	</ul>
-	{% if pages %}
-	<ul>
-		{% for page in pages %}
-		<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-		{% endfor %}
-	</ul>
-	{% else %}
-	<strong>No pages currently in category.</strong>
-	{% endif %}
-
-	{% else %}
-	The specified category does not exist.
-	{% endif %}
-	<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" /> 
-	<img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat."/> 
+<h1>Rango says...</h1>
+<div>
+    here is the about page. <br />
+    This tutorial has been put together by David Maxwell.<br />
+    <p>Visits: {{ visits }}</p>
+</div>
+<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
+<img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat" />
 {% endblock %}
